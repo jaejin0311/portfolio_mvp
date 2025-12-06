@@ -23,6 +23,7 @@ import '@rainbow-me/rainbowkit/styles.css';
 
 const { wallets } = getDefaultWallets();
 
+// 군대 환경이라 테스트넷(Sepolia) 위주로 설정함.
 const config = getDefaultConfig({
   appName: 'Jaejin Portfolio',
   projectId: 'b6d7df052280537d054087a01bc890b1', 
