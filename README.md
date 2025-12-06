@@ -65,7 +65,7 @@ npm install
 
 # 3. Run the development server
 npm run dev
-
+```
 
 🗺 Roadmap
 [x] Phase 1: Project Setup & Wallet Connection (RainbowKit Integration)
@@ -82,3 +82,10 @@ Email: jaejin.kim0311@gmail.com
 GitHub: github.com/jaejin0311
 
 LinkedIn: linkedin.com/in/jaejink
+
+## 📝 Dev Log
+
+- **2025-12-06**: 프로젝트 초기 세팅 및 지갑 연결 구현
+  - `Next.js 14` + `RainbowKit` 환경 구축 (Codespaces 활용)
+  - `Guestbook.sol` 스마트 컨트랙트 작성 (Remix VM 배포 테스트)
+  - **Issue**: 메인넷 연결 시 가스비 문제 발생 → Remix VM으로 우회하여 로직 검증 완료.
