@@ -68,6 +68,7 @@ npm run dev
 ```
 
 🗺 Roadmap
+
 [x] Phase 1: Project Setup & Wallet Connection (RainbowKit Integration)
 
 [ ] Phase 2: Smart Contract Development (Solidity Guestbook) & Testing

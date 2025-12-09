@@ -37,7 +37,7 @@ const config = getDefaultConfig({
   chains: [
     mainnet,
     polygon,
-    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [sepolia] : []),
+    sepolia,
   ],
   ssr: true,
 });
