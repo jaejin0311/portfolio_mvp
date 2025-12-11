@@ -33,9 +33,8 @@ This project is built to prove my capability as a **Bilingual Smart Contract Eng
 | **Language** | **TypeScript** | Type safety to prevent runtime errors and improve code maintainability. |
 | **Styling** | **Tailwind CSS** | Rapid UI development and consistent design system. |
 | **Web3 Auth** | **RainbowKit + Wagmi** | Best-in-class UX for wallet connection (Metamask, WalletConnect). |
-| **Blockchain** | **Solidity** (Coming Soon) | Smart contract for on-chain guestbook features. |
-| **Deployment** | **Fleek (IPFS)** (Planned) | Censorship-resistant hosting on the decentralized web. |
-
+| **Blockchain** | **Solidity** (Deployed on Sepolia) | Smart contract for on-chain guestbook features. |
+| **Deployment** | **Vercel** (Hybrid) | Optimized for Next.js performance and stability (Turbopack bypassed for Web3 compatibility). |
 <br/>
 
 ## ✨ Key Features
@@ -45,12 +44,12 @@ This project is built to prove my capability as a **Bilingual Smart Contract Eng
 - Supports multiple chains (Ethereum Mainnet, Polygon, Sepolia Testnet).
 - **UX Consideration:** Designed to be accessible even for users without wallets (Read-only mode).
 
-### 2. On-Chain Guestbook (In Progress)
+### 2. On-Chain Guestbook (Functional)
 - A decentralized guestbook where visitors can leave immutable messages.
 - Interactions are recorded on the Ethereum blockchain via Smart Contracts.
 
-### 3. Decentralized Hosting (Planned)
-- This website will be hosted on **IPFS** via Fleek, ensuring 100% uptime and data integrity.
+### 3. Hybrid Deployment (Completed)
+- Deployed on **Vercel** to demonstrate the integration of Web3 logic within a high-performance Web2 infrastructure.
 
 <br/>
 
@@ -104,7 +103,7 @@ LinkedIn: linkedin.com/in/jaejink
   - **Issue:** Data read failed initially unless the wallet was manually connected to Sepolia.
   - **Troubleshooting:** Identified the issue as complex environment instability (likely Codespaces HMR/caching issues) combined with RPC connection failures. Used `git reset --hard` and environment cleanup (`rm -rf node_modules`) to revert to a stable codebase.
 
-- **2025-12-06**: 프로젝트 초기 세팅 및 지갑 연결 구현
-  - `Next.js 14` + `RainbowKit` 환경 구축 (Codespaces 활용)
-  - `Guestbook.sol` 스마트 컨트랙트 작성 (Remix VM 배포 테스트)
-  - **Issue**: 메인넷 연결 시 가스비 문제 발생 → Remix VM으로 우회하여 로직 검증 완료.
+- **2025-12-06**: Project Setup & Wallet Connection Implementation
+  - Established `Next.js 14` + `RainbowKit` environment (using Codespaces).
+  - Developed `Guestbook.sol` smart contract (Deployed/Tested on Remix VM).
+  - **Issue:** Encountered high gas fees on Mainnet → Validated logic using Remix VM as a workaround.
