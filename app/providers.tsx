@@ -13,8 +13,8 @@ import {
   ledgerWallet,
 } from '@rainbow-me/rainbowkit/wallets';
 import {
-  mainnet,
   sepolia,
+  mainnet,
   polygon,
 } from 'wagmi/chains';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -35,9 +35,9 @@ const config = getDefaultConfig({
     },
   ],
   chains: [
+    sepolia,
     mainnet,
     polygon,
-    sepolia,
   ],
   ssr: true,
 });

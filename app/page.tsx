@@ -1,5 +1,6 @@
 'use client';
 
+import { mainnet, sepolia } from 'wagmi/chains';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useState, useEffect } from 'react';
 import { useReadContract, useWriteContract, useAccount } from 'wagmi';
@@ -15,7 +16,13 @@ export default function Home() {
     address: GUESTBOOK_ADDRESS,
     abi: GuestbookABI,
     functionName: 'getMessages',
+    chainId: sepolia.id,
   });
+
+  useEffect(() => {
+    // isConnected에 의존하지 않고, 최초 렌더링 시 데이터를 가져옵니다.
+    refetch();
+  }, [refetch]); // refetch 함수 자체는 wagmi에서 제공하므로 의존성 배열에 넣습니다.
 
   // 2. 블록체인에 글 쓰기 (Write)
   const { writeContract, isPending } = useWriteContract();
