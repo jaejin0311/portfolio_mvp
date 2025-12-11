@@ -1,5 +1,7 @@
 # 🚀 Jaejin Kim | Decentralized Portfolio
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://YOUR_VERCEL_APP_URL.vercel.app)
+![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)
 ![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat-square&logo=typescript)
 ![Web3](https://img.shields.io/badge/Web3-RainbowKit-multicolor?style=flat-square)
@@ -86,6 +88,12 @@ LinkedIn: linkedin.com/in/jaejink
 
 ## 📝 Dev Log
 
+- **2025-12-11 (Update)**: **Production Deployment & Build Optimization (Vercel)**
+  - **Challenge:** Encountered persistent `Module not found` errors (`pino`, `thread-stream`, `tap`) during Vercel deployment. Identified conflict between Next.js 16's default Turbopack and deep dependencies of WalletConnect.
+  - **Solution:**
+    1.  **Build Configuration:** Enforced Webpack (`next build --webpack`) in `package.json` to bypass Turbopack's strict module resolution for legacy libs.
+    2.  **Webpack Aliasing:** Configured `next.config.ts` with `resolve.alias` to map server-side only logging libraries (`pino`, `thread-stream`) to `false`, effectively removing them from the client bundle.
+  - **Result:** Successfully deployed to Vercel with 100% functionality.
 - **2025-12-11 (Latest)**: **Web3 Data Stability and Cross-Chain Read Finalized**
   - **Issue Resolution (Critical):** Resolved critical **`ContractFunctionExecutionError`** caused by ABI definition structure (`tuple[]` vs `struct[]`) incompatibility with the `viem` library. Stabilized ABI by using the minimal JSON format.
   - **Environment Stability:** Finalized local development environment by addressing `next dev` failure, utilizing `npm install` with aggressive cache removal.
