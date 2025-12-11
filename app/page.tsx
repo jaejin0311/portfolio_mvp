@@ -7,6 +7,11 @@ import { useReadContract, useWriteContract, useAccount } from 'wagmi';
 import { GuestbookABI } from './abi';
 import { GUESTBOOK_ADDRESS } from './contractAddress';
 
+// icons
+import { FaCode, FaLaptopCode, FaTools, FaGithub, FaLink } from 'react-icons/fa';
+import { SiSolidity, SiTypescript, SiNextdotjs, SiTailwindcss, SiPostgresql, SiMongodb } from 'react-icons/si';
+import { TbGitBranch } from 'react-icons/tb';
+
 export default function Home() {
   const [message, setMessage] = useState('');
   const { isConnected } = useAccount();
@@ -65,7 +70,7 @@ export default function Home() {
         </div>
       </nav>
 
-      <div className="max-w-2xl mx-auto px-6 py-20">
+      <div className="max-w-4xl mx-auto px-6 py-20">
         
         {/* 히어로 섹션 */}
         <section className="text-center mb-16">
@@ -172,7 +177,56 @@ export default function Home() {
             </div>
           </div>
 
-</div>
+          </div>
+        </section>
+
+        {/* ✨ 새 섹션: 핵심 스킬셋 (아이콘 추가) ✨ */}
+        <section id="skills" className="bg-gray-900 border border-gray-800 rounded-2xl p-6 md:p-8 shadow-2xl mb-16">
+          <h2 className="text-2xl font-bold mb-8 border-b border-gray-800 pb-4">
+            🛠️ Core Technical Skills
+          </h2>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+            
+            {/* 스킬 그룹 1: Web3 & Blockchain */}
+            <div className="p-4 bg-gray-950 rounded-lg border border-gray-700/50">
+              <h3 className="text-lg font-semibold text-blue-400 mb-3 flex items-center gap-2">
+                <FaCode className="text-xl"/> Blockchain / Web3
+              </h3>
+              <ul className="space-y-1 text-gray-300 text-sm">
+                <li className="flex items-center gap-2"><SiSolidity className="text-base text-gray-500"/> Solidity (Smart Contract)</li>
+                <li className="flex items-center gap-2"><FaLink className="text-base text-gray-500"/> EVM, Sepolia Testnet</li>
+                <li className="flex items-center gap-2"><FaLink className="text-base text-gray-500"/> Wagmi, Viem</li>
+                <li className="flex items-center gap-2"><FaLink className="text-base text-gray-500"/> Hardhat / Foundry (Tooling)</li>
+              </ul>
+            </div>
+
+            {/* 스킬 그룹 2: Frontend & Core Tech */}
+            <div className="p-4 bg-gray-950 rounded-lg border border-gray-700/50">
+              <h3 className="text-lg font-semibold text-blue-400 mb-3 flex items-center gap-2">
+                <FaLaptopCode className="text-xl"/> Frontend / Core
+              </h3>
+              <ul className="space-y-1 text-gray-300 text-sm">
+                <li className="flex items-center gap-2"><SiTypescript className="text-base text-blue-500"/> TypeScript, JavaScript</li>
+                <li className="flex items-center gap-2"><SiNextdotjs className="text-base"/> Next.js (App Router)</li>
+                <li className="flex items-center gap-2"><FaLink className="text-base text-gray-500"/> React, Zustand</li>
+                <li className="flex items-center gap-2"><SiTailwindcss className="text-base text-cyan-400"/> Tailwind CSS, SCSS</li>
+              </ul>
+            </div>
+            
+            {/* 스킬 그룹 3: Backend & DevOps */}
+            <div className="p-4 bg-gray-950 rounded-lg border border-gray-700/50">
+              <h3 className="text-lg font-semibold text-blue-400 mb-3 flex items-center gap-2">
+                <FaTools className="text-xl"/> PM / DevOps
+              </h3>
+              <ul className="space-y-1 text-gray-300 text-sm">
+                <li className="flex items-center gap-2"><FaLink className="text-base text-gray-500"/> Project Management (Agile)</li>
+                <li className="flex items-center gap-2"><FaLink className="text-base text-gray-500"/> Architecture Design</li>
+                <li className="flex items-center gap-2"><TbGitBranch className="text-base text-red-500"/> Git & <FaGithub className="text-base"/> GitHub</li>
+                <li className="flex items-center gap-2"><SiPostgresql className="text-base text-blue-600"/> PostgreSQL, <SiMongodb className="text-base text-green-500"/> MongoDB</li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         {/* 방명록 섹션 (Real Web3) */}
@@ -226,7 +280,16 @@ export default function Home() {
             )}
           </div>
         </section>
-
+      {/* 🚨 푸터 섹션 추가 */}
+        <footer className="border-t border-gray-800 py-8 mt-16 text-center text-gray-500 text-sm">
+          <div className="max-w-4xl mx-auto px-6">
+            <p>&copy; {new Date().getFullYear()} Jaejin Kim. All Rights Reserved.</p>
+            <p className="mt-2">
+              <a href="mailto:jaejin.kim0311@gmail.com" className="hover:text-blue-400 transition-colors">Email</a> | 
+              <a href="https://github.com/jaejin0311" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors ml-2">GitHub</a>
+            </p>
+          </div>
+        </footer>
       </div>
     </main>
   );
