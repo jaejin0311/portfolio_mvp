@@ -75,9 +75,9 @@ npm run dev
 
 [x] Phase 2: Smart Contract Development (Solidity Guestbook) & Testing
 
-[ ] Phase 3: UI/UX Design Implementation
+[x] Phase 3: UI/UX Design Implementation
 
-[ ] Phase 4: IPFS Deployment & ENS Domain Connection
+[x] Phase 4: IPFS Deployment & ENS Domain Connection
 
 📬 Contact
 Email: jaejin.kim0311@gmail.com
@@ -88,13 +88,13 @@ LinkedIn: linkedin.com/in/jaejink
 
 ## 📝 Dev Log
 
-- **2025-12-11 (Update)**: **Production Deployment & Build Optimization (Vercel)**
+- **2025-12-11(Latest)**: **Production Deployment & Build Optimization (Vercel)**
   - **Challenge:** Encountered persistent `Module not found` errors (`pino`, `thread-stream`, `tap`) during Vercel deployment. Identified conflict between Next.js 16's default Turbopack and deep dependencies of WalletConnect.
   - **Solution:**
     1.  **Build Configuration:** Enforced Webpack (`next build --webpack`) in `package.json` to bypass Turbopack's strict module resolution for legacy libs.
     2.  **Webpack Aliasing:** Configured `next.config.ts` with `resolve.alias` to map server-side only logging libraries (`pino`, `thread-stream`) to `false`, effectively removing them from the client bundle.
   - **Result:** Successfully deployed to Vercel with 100% functionality.
-- **2025-12-11 (Latest)**: **Web3 Data Stability and Cross-Chain Read Finalized**
+- **2025-12-11**: **Web3 Data Stability and Cross-Chain Read Finalized**
   - **Issue Resolution (Critical):** Resolved critical **`ContractFunctionExecutionError`** caused by ABI definition structure (`tuple[]` vs `struct[]`) incompatibility with the `viem` library. Stabilized ABI by using the minimal JSON format.
   - **Environment Stability:** Finalized local development environment by addressing `next dev` failure, utilizing `npm install` with aggressive cache removal.
   - **Feature Enhancement:** Implemented **`chainId: sepolia.id`** in `useReadContract` to ensure the Guestbook always displays data, regardless of the user's wallet network (Mainnet, Polygon, etc.). Configured `providers.tsx` to prioritize the Sepolia RPC, ensuring non-wallet users can also see the guestbook messages.
