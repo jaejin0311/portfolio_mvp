@@ -67,11 +67,11 @@ npm install
 npm run dev
 ```
 
-🗺 Roadmap
+## 🗺 Roadmap
 
 [x] Phase 1: Project Setup & Wallet Connection (RainbowKit Integration)
 
-[ ] Phase 2: Smart Contract Development (Solidity Guestbook) & Testing
+[x] Phase 2: Smart Contract Development (Solidity Guestbook) & Testing
 
 [ ] Phase 3: UI/UX Design Implementation
 
@@ -85,6 +85,16 @@ GitHub: github.com/jaejin0311
 LinkedIn: linkedin.com/in/jaejink
 
 ## 📝 Dev Log
+
+- **2025-12-11 (Latest)**: **Web3 Data Stability and Cross-Chain Read Finalized**
+  - **Issue Resolution (Critical):** Resolved critical **`ContractFunctionExecutionError`** caused by ABI definition structure (`tuple[]` vs `struct[]`) incompatibility with the `viem` library. Stabilized ABI by using the minimal JSON format.
+  - **Environment Stability:** Finalized local development environment by addressing `next dev` failure, utilizing `npm install` with aggressive cache removal.
+  - **Feature Enhancement:** Implemented **`chainId: sepolia.id`** in `useReadContract` to ensure the Guestbook always displays data, regardless of the user's wallet network (Mainnet, Polygon, etc.). Configured `providers.tsx` to prioritize the Sepolia RPC, ensuring non-wallet users can also see the guestbook messages.
+
+- **2025-12-09**: **Initial Web3 Integration and Environment Troubleshooting**
+  - Implemented `useReadContract` and `useWriteContract` for the Guestbook.
+  - **Issue:** Data read failed initially unless the wallet was manually connected to Sepolia.
+  - **Troubleshooting:** Identified the issue as complex environment instability (likely Codespaces HMR/caching issues) combined with RPC connection failures. Used `git reset --hard` and environment cleanup (`rm -rf node_modules`) to revert to a stable codebase.
 
 - **2025-12-06**: 프로젝트 초기 세팅 및 지갑 연결 구현
   - `Next.js 14` + `RainbowKit` 환경 구축 (Codespaces 활용)
