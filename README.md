@@ -2,7 +2,6 @@
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://portfolio-3r4py5v91-jaejinkim0311-gmailcoms-projects.vercel.app/)
 ![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)
-![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat-square&logo=typescript)
 ![Web3](https://img.shields.io/badge/Web3-RainbowKit-multicolor?style=flat-square)
 ![Solidity](https://img.shields.io/badge/Solidity-In%20Progress-gray?style=flat-square&logo=solidity)
