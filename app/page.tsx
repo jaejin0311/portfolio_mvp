@@ -28,7 +28,7 @@ export default function Home() {
   useEffect(() => {
     // isConnected에 의존하지 않고, 최초 렌더링 시 데이터를 가져옵니다.
     refetch();
-  }, [refetch]); // refetch 함수 자체는 wagmi에서 제공하므로 의존성 배열에 넣습니다.
+  }, [refetch]);
 
   // 2. 블록체인에 글 쓰기 (Write)
   const { writeContract, isPending } = useWriteContract();
@@ -93,7 +93,7 @@ export default function Home() {
 
           <div className="space-y-4">
 
-            {/* 프로젝트 카드 1: Web3 Hybrid DApp Portfolio (현재 프로젝트) - 내용 및 굵게 수정 완료 */}
+            {/* 프로젝트 카드 1: Web3 Hybrid DApp Portfolio */}
             <div className="border border-gray-700 rounded-xl transition-all">
               <div 
                 className={`p-5 cursor-pointer flex justify-between items-center ${openProjectId === 'self-portfolio' ? 'bg-gray-800' : 'hover:bg-gray-800/50'}`}
@@ -108,16 +108,14 @@ export default function Home() {
                 <svg className={`w-5 h-5 transition-transform ${openProjectId === 'self-portfolio' ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
               </div>
 
-              {/* 세부 정보 영역 (아코디언) */}
+              {/* 세부 정보 영역 1 */}
               <div className={`overflow-hidden transition-all duration-300 ${openProjectId === 'self-portfolio' ? 'max-h-96 opacity-100 p-5 pt-0 border-t border-gray-700' : 'max-h-0 opacity-0'}`}>
                 <p className="text-gray-400 mb-4">
                   Next.js와 Wagmi를 기반으로 구축된 포트폴리오 DApp입니다. 지갑 연결 유무와 관계없이 Sepolia 테스트넷의 방명록 데이터를 안정적으로 읽어오는 <strong>Cross-Chain Read Stabilization 로직</strong>을 적용했습니다.
                 </p>
                 <h4 className="text-lg font-semibold mb-2 text-green-300">주요 기술적 성과</h4>
                 <ul className="list-disc list-inside text-gray-400 space-y-1 ml-4">
-                  {/* **ABI/RPC 문제 해결:** -> <strong>ABI/RPC 문제 해결:</strong> 로 변경 */}
                   <li><strong>ABI/RPC 문제 해결:</strong> viem 라이브러리와 충돌하는 ABI 정의를 수정하고 안정적인 Sepolia RPC를 강제 주입하여 통신 안정화.</li>
-                  {/* **크로스-체인 읽기(Cross-Chain Read):** -> <strong>크로스-체인 읽기(Cross-Chain Read):</strong> 로 변경 */}
                   <li><strong>크로스-체인 읽기(Cross-Chain Read):</strong> `useReadContract`에 `chainId`를 고정하여 사용자가 다른 네트워크(Mainnet 등)에 있어도 Sepolia 데이터 조회 보장.</li>
                 </ul>
                 <div className="flex flex-wrap gap-2 text-sm mt-4">
@@ -126,9 +124,8 @@ export default function Home() {
                   <span className="bg-gray-700/50 text-gray-300 px-3 py-1 rounded-full">Tailwind CSS</span>
                   <span className="bg-gray-700/50 text-gray-300 px-3 py-1 rounded-full">Sepolia</span>
                 </div>
-                {/* GitHub 주소 링크는 그대로 유지 */}
                 <a href="https://github.com/jaejin0311/my-web3-portfolio" 
-                  target="_blank" // 새 탭에서 열기
+                  target="_blank" 
                   rel="noopener noreferrer"
                   className="mt-4 inline-block bg-green-600/20 text-green-300 font-semibold py-2 px-4 rounded-lg hover:bg-green-600/30 transition-colors text-sm">
                   GitHub에서 소스 코드 보기 →
@@ -136,51 +133,51 @@ export default function Home() {
               </div>
             </div>
 
-            {/* 프로젝트 카드 2: NFT Marketplace Backend (Example) - 굵게 수정 완료 */}
+            {/* 프로젝트 카드 2: Milestone Escrow Protocol (교체 완료) */}
             <div className="border border-gray-700 rounded-xl transition-all">
               <div 
-              className={`p-5 cursor-pointer flex justify-between items-center ${openProjectId === 'nft' ? 'bg-gray-800' : 'hover:bg-gray-800/50'}`}
-              onClick={() => setOpenProjectId(openProjectId === 'nft' ? null : 'nft')}
-            >
-              <div>
-                <span className="inline-block text-xs font-semibold py-1 px-3 rounded-full bg-purple-500/10 text-purple-400 mb-1">
-                  Technical PM
-                </span>
-                <h3 className="text-xl font-bold">NFT 마켓플레이스 백엔드 아키텍처 설계</h3>
+                className={`p-5 cursor-pointer flex justify-between items-center ${openProjectId === 'escrow' ? 'bg-gray-800' : 'hover:bg-gray-800/50'}`}
+                onClick={() => setOpenProjectId(openProjectId === 'escrow' ? null : 'escrow')}
+              >
+                <div>
+                  <span className="inline-block text-xs font-semibold py-1 px-3 rounded-full bg-orange-500/10 text-orange-400 mb-1">
+                    Smart Contract
+                  </span>
+                  <h3 className="text-xl font-bold">Milestone Escrow Protocol</h3>
+                </div>
+                <svg className={`w-5 h-5 transition-transform ${openProjectId === 'escrow' ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
               </div>
-              <svg className={`w-5 h-5 transition-transform ${openProjectId === 'nft' ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
-            </div>
 
-            {/* 세부 정보 영역 (아코디언) */}
-            <div className={`overflow-hidden transition-all duration-300 ${openProjectId === 'nft' ? 'max-h-96 opacity-100 p-5 pt-0 border-t border-gray-700' : 'max-h-0 opacity-0'}`}>
-              <p className="text-gray-400 mb-4">
-                ERC-721 토큰 표준을 준수하는 NFT 발행 및 거래 플랫폼의 백엔드와 데이터베이스 구조를 설계했습니다. 수십만 건의 거래 및 데이터 처리를 위한 확장성 전략(Scalability Strategy)을 중점적으로 수립했습니다.
-              </p>
-              <h4 className="text-lg font-semibold mb-2 text-purple-300">로드맵 및 성과</h4>
-              <ul className="list-disc list-inside text-gray-400 space-y-1 ml-4">
-                {/* **V1.0 완료:** -> <strong>V1.0 완료:</strong> 로 변경 */}
-                <li><strong>V1.0 완료:</strong> 거래소 데이터 모델링 및 클라우드 인프라 설계 완료.</li>
-                {/* **V2.0 목표:** -> <strong>V2.0 목표:</strong> 로 변경 */}
-                <li><strong>V2.0 목표:</strong> 오프체인 데이터 색인화(Indexing)를 위한 Graph 프로토콜 통합 (진행 예정).</li>
-              </ul>
-              <div className="flex flex-wrap gap-2 text-sm mt-4">
-                <span className="bg-gray-700/50 text-gray-300 px-3 py-1 rounded-full">아키텍처 설계</span>
-                <span className="bg-gray-700/50 text-gray-300 px-3 py-1 rounded-full">PostgreSQL</span>
-                <span className="bg-gray-700/50 text-gray-300 px-3 py-1 rounded-full">ERC-721</span>
-                <span className="bg-gray-700/50 text-gray-300 px-3 py-1 rounded-full">PM</span>
+              {/* 세부 정보 영역 2 */}
+              <div className={`overflow-hidden transition-all duration-300 ${openProjectId === 'escrow' ? 'max-h-[500px] opacity-100 p-5 pt-0 border-t border-gray-700' : 'max-h-0 opacity-0'}`}>
+                <p className="text-gray-400 mb-4">
+                  프리랜서 및 외주 용역의 <strong>'납품-검수-정산' 프로세스</strong>를 스마트 컨트랙트로 자동화하여 신뢰 비용을 제거한 에스크로 데모입니다. 상태 머신(State Machine) 패턴을 통해 중개자 없는 안전한 정산을 보장합니다.
+                </p>
+                <h4 className="text-lg font-semibold mb-2 text-orange-300">주요 기능 및 아키텍처</h4>
+                <ul className="list-disc list-inside text-gray-400 space-y-1 ml-4">
+                  <li><strong>State Machine Logic:</strong> Pending → Submitted → Paid 상태 흐름을 컨트랙트로 강제.</li>
+                  <li><strong>Codespaces 호환 아키텍처:</strong> Next.js API Route를 프록시로 사용하여 브라우저 지갑 제한을 우회하는 서버 사이드 서명 구현.</li>
+                  <li><strong>Robust Testing:</strong> Foundry를 이용한 Happy Path 및 예외 상황(Edge Case) 검증 완료.</li>
+                </ul>
+                <div className="flex flex-wrap gap-2 text-sm mt-4">
+                  <span className="bg-gray-700/50 text-gray-300 px-3 py-1 rounded-full">Solidity 0.8.20</span>
+                  <span className="bg-gray-700/50 text-gray-300 px-3 py-1 rounded-full">Foundry</span>
+                  <span className="bg-gray-700/50 text-gray-300 px-3 py-1 rounded-full">Next.js</span>
+                  <span className="bg-gray-700/50 text-gray-300 px-3 py-1 rounded-full">Viem</span>
+                </div>
+                <a href="https://github.com/jaejin0311/milestone-escrow-protocol" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-block bg-orange-600/20 text-orange-300 font-semibold py-2 px-4 rounded-lg hover:bg-orange-600/30 transition-colors text-sm">
+                  GitHub에서 소스 코드 보기 →
+                </a>
               </div>
-              {/* 링크는 그대로 유지 */}
-              <a href="/projects/wallet-management" 
-                className="mt-4 inline-block bg-blue-600/20 text-blue-300 font-semibold py-2 px-4 rounded-lg hover:bg-blue-600/30 transition-colors text-sm">
-                기술 분석 및 로드맵 상세 보기 →
-              </a>
             </div>
-          </div>
 
           </div>
         </section>
 
-        {/* ✨ 새 섹션: 핵심 스킬셋 (아이콘 추가) ✨ */}
+        {/* 핵심 스킬셋 */}
         <section id="skills" className="bg-gray-900 border border-gray-800 rounded-2xl p-6 md:p-8 shadow-2xl mb-16">
           <h2 className="text-2xl font-bold mb-8 border-b border-gray-800 pb-4">
             🛠️ Core Technical Skills
@@ -280,7 +277,7 @@ export default function Home() {
             )}
           </div>
         </section>
-      {/* 🚨 푸터 섹션 추가 */}
+      
         <footer className="border-t border-gray-800 py-8 mt-16 text-center text-gray-500 text-sm">
           <div className="max-w-4xl mx-auto px-6">
             <p>&copy; {new Date().getFullYear()} Jaejin Kim. All Rights Reserved.</p>
